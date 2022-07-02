@@ -1,1 +1,24 @@
+FIFO:->First In First Out
 
+Insertion :-> It is done from Front
+Deletion :-> It is done from Rear End
+
+Operations :->
+
+1.Enqueue(x) => For Inserting an element in queue . It is done on rear side.
+2.Dequeue(x) => For removing an element from queue . It is done on front side.
+3.getFront()=>returns the front element of a queue 
+4.getrear()=>returns the rear element a queue 
+5. size() => It returns the size of queue
+6. isempty() => It returns whether queue is empty or not
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Applications of Queue :->
+1. Single resource and multiple consumers ==>we use queue 
+2. Synchronization between slow and fast devices eg :-> keyboard(slow) and processor(fast)
+3. In Operating System ( Semaphores , FCFS Scheduling , Buffers for devices like keyboard )
+4. In Computer networks (Routers/Switches/ Mail Queues) :==> Routers will process the request send by sender to reciever in queue order as sender sends a lot of data at a 
+   very fast pace and recievers recieves the data in slow manner . Hence, It uses Queue . 
+5. Various Variations of Queue :-> Dequeue(Doubly ended Queue) , Priority_queue(Implemented using Heap) , Doubly ended Priority Queue 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
