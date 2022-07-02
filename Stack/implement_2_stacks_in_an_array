@@ -1,1 +1,220 @@
+//Brute Force Approach :->
+/*
 
+Divide the array into two halves and assign the half space to two stacks i.e., use arr[0] to arr[n/2] for stack1 and arr[(n/2)+1] to arr[n-1] for stack 2
+
+Problems :-> Inefficient use of array space .
+A stack push operation may result in stack overflow even if there is space available in arr[].
+ 
+ 
+ Time Complexity :-> 
+    push()  ==>O(1)
+    pop() ==>O(1)
+    
+    Auxilliary Space ==>O(N)
+*/
+
+#include <iostream>
+
+using namespace std ;
+
+class twoStack{
+   int* arr;
+   int size;
+   int top1,top2;
+   
+   public:
+   
+   twoStack(int n)
+   {
+      size=n;
+      arr=new int[n];
+      top1=n/2+1;
+      top2=n/2;
+   }
+   
+   void push1(int x)
+   {
+     //if array contains atleast one empty space 
+     
+      if(top1>0)
+      {
+         top1--;
+         arr[top1]=x;
+      }
+      else
+      {
+         cout<<"stack overflow"<<endl;
+         return;
+      }
+   }
+   
+   void push2(int x)
+   {
+   //if array contaisn atleast one empty space  
+      if(top2<size-1)
+      {
+        top2++;
+        arr[top2]=x;
+      }
+      
+      else
+      {
+          cout<<"stack overflow"<<endl;
+      }
+      
+   }
+   
+   int pop1()
+   {
+      if(top1<=size/2)
+      {
+          int x=arr[top1];
+          top1++;
+          return x;
+       }
+       else
+       {
+          cout<<"Stack underflow";
+          exit(1);
+       }
+   }
+   
+   int pop2()
+   {
+      if(top2 >=size/2+1)
+      {
+         int x=arr[top2];
+         top2--;
+         return x;
+      }
+      else
+      {
+          cout<<"Stack underflow";
+          exit(1);
+      }
+      
+   }
+   
+ };
+ 
+int main()
+{
+    twoStack ts(5);
+    ts.push1(5);
+    ts.push2(10);
+    ts.push2(15);
+    ts.push1(11);
+    ts.push2(7);    //stack overflow by element 7
+
+cout<<ts.pop1();     //output :->11
+return 0;
+}
+
+/*
+Optimised Approach :-> 
+start two stacks from two extreme corners of arr[]. stack1 starts from the leftmost element, the first element in stack1 is pushed at index 0. The stack2 starts from the rightmost corner, the first element in stack2 is pushed at index (n-1). Both stacks grow (or shrink) in opposite direction
+ 
+ Time Complexity :-> 
+    push()  ==>O(1)
+    pop() ==>O(1)
+    
+    Auxilliary Space ==>O(N)
+*/
+
+#include <iostream>
+
+using namespace std ;
+
+class twoStack{
+   int* arr;
+   int size;
+   int top1,top2;
+   
+   public:
+   
+   twoStack(int n)
+   {
+      size=n;
+      arr=new int[n];
+      top1=-1;
+      top2=size;
+   }
+   
+   void push1(int x)
+   {
+     //if array contains atleast one empty space 
+     
+      if(top1 < top2-1)
+      {
+         top1++;
+         arr[top1]=x;
+      }
+      else
+      {
+         cout<<"stack overflow"<<endl;
+         return;
+      }
+   }
+   
+   void push2(int x)
+   {
+   //if array contaisn atleast one empty space  
+      if(top1<top2-1)
+      {
+        top2--;
+        arr[top2]=x;
+      }
+      
+      else
+      {
+          cout<<"stack overflow"<<endl;
+      }
+      
+   }
+   
+   int pop1()
+   {
+      if(top1>=0)
+      {
+          int x=arr[top1];
+          top1--;
+          return x;
+       }
+       else
+       {
+          cout<<"Stack underflow";
+          exit(1);
+       }
+   }
+   
+   int pop2()
+   {
+      if(top2 <size)
+      {
+         int x=arr[top2];
+         top2++;
+         return x;
+      }
+      else
+      {
+          cout<<"Stack underflow";
+          exit(1);
+      }
+      
+   }
+   
+ };
+ 
+int main()
+{
+    twoStack ts(5);
+    ts.push1(5);
+    ts.push2(10);
+    ts.push2(15);
+    ts.push1(11);
+    ts.push2(7);    //stack overflow by element 7
+
+cout<<ts.pop1();     //output :->11
+return 0;
+}
