@@ -125,7 +125,7 @@ struct queue{
    
    void enqueue(int x)
    {
-      if((front == 0 && rear == size-1) || (rear == (front-1)%(size-1)))
+      if((front == 0 && rear == size-1) || (rear == (front-1)%(size-1)))                             //we can also write isfull()
        { 
           cout<<"Queue is full";
           return ;
@@ -152,7 +152,7 @@ struct queue{
    
    void Dequeue()
    {
-      if(front==-1)
+      if(front==-1)                                              //Here , we can check isempty()
       {
          cout<<"Queue is empty ";
          return;  
