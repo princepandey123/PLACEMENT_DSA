@@ -1,1 +1,81 @@
+//Time Complexity :->O(1)
+//Space Complexity :->O(1)
 
+
+struct QNode
+{
+   int data;
+   QNode*next;
+   
+   QNode(int d)
+   {
+      data=d;
+      next=NULL;
+   }
+   
+};
+
+struct Queue
+{
+   QNode *front, *rear;
+   Queue()
+   {
+      front=rear=NULL;
+   }
+   
+   void Enqueue(int x)
+   {
+     //create a new LinkedList Node
+      QNode *temp=new Node(x);
+      
+      //If queue is empty , then new node is both front and rear
+      
+      if(rear=NULL)
+      {
+         front=rear=temp;
+         return ;
+      }
+      
+      //Add the new node to rear next
+      
+      rear->next=temp;
+      rear=temp;
+    }
+    
+    void Dequeue()
+    {
+      //if queue is empty 
+       if(front==NULL)
+          return;
+          
+       //Store previous front and move front one steps ahead
+       QNode *temp=front;
+       front=front->next;
+       
+       //If front becomes NULL then change rear to NULL i.e., when only 1 element is present
+       
+       if(front==NULL)
+           rear=NULL;
+          
+      delete(temp);
+   }
+   
+  };
+  
+  int main()
+  {
+     Queue q;
+     q.Enqueue(10);
+     q.Enqueue(20);
+     q.Enqueue(30);
+     q.Dequeue();
+     q.Enqueue(50);
+     q.Dequeue();
+     
+     cout<<"Queue Front"<<(q.front)->data<<endl;
+     cout<<"Queue Rear"<<(q.rear)->data<<endl;
+     
+     return 0;  
+   } 
+     
+     
