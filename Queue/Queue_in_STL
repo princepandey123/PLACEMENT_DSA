@@ -1,0 +1,30 @@
+//Time Complexity :-> O(1) for all operations
+
+//Queue can be implemented internally using Dequeue Container or list container 
+
+
+#include<iostream>
+#include<queue>
+
+using namespace std;
+
+int main()
+{
+queue<int>q;
+q.push(10);
+q.push(20);
+q.push(30);
+
+cout<<q.size()<<endl;
+cout<<q.front()<<q.back()<<endl;
+q.pop();
+cout<<q.front()<<q.back()<<endl;
+
+//Traversing the items in Queue
+while(q.empty()==false)
+{
+   cout<<q.front()<<endl;
+   q.pop();
+}   
+return 0;
+}
