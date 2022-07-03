@@ -1,1 +1,31 @@
+Dequeue Stands for Doubly Ended Queue 
+In Dequeue , we have 2 ends for insertion and deletion of elements
+    InsertFront & Insertrear
+    DeleteFront & Deleterear
+    
+Various Operations on Dequeue :->
+1.getfront() => returns  the front element of Dequeue
+2.getrear() => returns the last element of Dequeue
+3.isfull() => retuns whether Dequeue is full or not
+4.isempty() => retuns whether Dequeue is empty or not
+5.size() => returns the size of Dequeue
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Implementation of Dequeue using Linked List :==> It is implemented using Doubly linked list with front and rear pointers . We are using doubly linked list instead of singly linked 
+list because Deletion takes O(N) time in singly linked list and O(1) time in Doubly linked list .
+
+
+Implementation of Dequeue using Array :==> It is implemented using circular array with front and rear indexes . We are using circular array aswe do insertion and deletion
+from both the ends.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Applications of Dequeue :==>
+
+1.A Dequeue can be used as both stack and queue 
+2.Maintaining History of Actions (Browsers History)
+3.A steal process scheduling algorithm i.e., we have multiple processors and each processors have their own queue
+4.Implementing a priority queue using 2 types of priority i.e., If higher priority value comes , we push it from front and if lower priority value comes , we push it from
+rear .Hence , maintain the priority of every Processes.
+5.Maximum and minimum of all the subarray of size k in an array
