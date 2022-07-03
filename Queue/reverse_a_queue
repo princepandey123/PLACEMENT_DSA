@@ -1,0 +1,99 @@
+//Approach 1 :-> Using Stack 
+
+//Time Complexity :->O(N)
+//Space Complexity :->O(N)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void reverseQueue (Queue<int>&q)
+{
+   stack <int>s;
+   while(!q.empty())
+   {
+      s.push(q.front());
+      q.pop();
+   }
+   while(!s.empty())
+   {
+      q.push(s.top());
+      s.pop();
+   }
+}
+
+void print(Queue<int>&q)
+{
+   while(!q.empty())
+   {
+      cout<<q.front()<<"   ";
+      q.pop();
+    }  
+}
+
+int main()
+{
+  queue<int>q;
+  q.push(10);
+  q.push(20);
+  q.push(30);
+  q.push(40);
+  
+  reverseQueue(q);
+  print(q);
+  
+  return 0;
+  
+}  
+ 
+ 
+//Approach 2 :-> Using Recursion :Instead of explicitly using stack we can mimic it using recursion ( recursion at backend will itself maintain stack)
+
+//Time Complexity :->O(N)
+//Space Complexity :->O(N)
+
+
+ #include<bits/stdc++.h>
+using namespace std;
+
+void reverseQueue (Queue<int>&q)
+{
+  //Base Case
+  if(q.size()==0
+    return ;
+  
+  //store front of queue 
+  int fr=q.front();
+  
+  //remove front
+  q.pop();
+  
+  //recursively call for leftover queue 
+  reverseQueue(q);
+  
+  //placing 1st element at correct position
+  q.push(fr);
+}
+
+void print(Queue<int>&q)
+{
+   while(!q.empty())
+   {
+      cout<<q.front()<<"   ";
+      q.pop();
+    }  
+}
+
+int main()
+{
+  queue<int>q;
+  q.push(10);
+  q.push(20);
+  q.push(30);
+  q.push(40);
+  
+  reverseQueue(q);
+  print(q);
+  
+  return 0;
+  
+}  
