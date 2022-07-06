@@ -1,1 +1,11 @@
+Usages of Heaps :->
+
+1.Used in Heapsort
+
+2. Used to implement Priority queue 
+
+It is of 2 types :->
+1.MinHeap-->Highest priority item is assigned lowest Value
+2.MaxHeap--> Highest priority item is assigned highest value.
+
 
